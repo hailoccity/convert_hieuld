@@ -4,19 +4,13 @@ from marshmallow import Schema, fields, ValidationError
 from schema_user import ValueSchema, UserSchema
 from datetime import datetime
 
-root_dir = r'C:\Users\hieuld\PycharmProject\convert_json\ConvertCsv\file_data'
-save_dir = r"C:\Users\hieuld\PycharmProject\convert_json\ConvertCsv\file_converted"
+root_dir = r'C:\Users\hieuld\PycharmProjects\convert_hieuld\ConvertCsv\file_data'
+save_dir = r"C:\Users\hieuld\PycharmProjects\convert_hieuld\ConvertCsv\file_converted"
 
 
 def obj_dict(obj):
     return obj.__dict__
 
-
-#
-# class Note_User:
-#     def __init__(self):
-#         self.id = 1
-#         self.name = "HieuLD"
 def users():
     user = [
         {
@@ -25,6 +19,25 @@ def users():
         }
     ]
     return user
+
+
+class Value_Generic:
+    def __init__(self, state, remark):
+        self.state = state
+        self.remark = remark
+
+
+class Generic:
+    def __init__(self, value=Value_Generic):
+        self.value = value
+
+
+class Value_Disease:
+    pass
+
+
+class Disease:
+    pass
 
 
 class Value_Prescription:
@@ -55,7 +68,8 @@ class Height:
 
 class User:
 
-    def __init__(self, id, name, age, address, prescription_note=Prescription_note, weight=Weight, height=Height):
+    def __init__(self, id, name, age, address, prescription_note=Prescription_note, weight=Weight, height=Height,
+                 generic=Generic):
         self.id = int(id)
         self.name = str(name)
         self.age = int(age)
@@ -63,6 +77,7 @@ class User:
         self.prescription_note = prescription_note
         self.weight = weight
         self.height = height
+        self.Generic = generic
 
 
 def convert(root_dir, saves_dir):
@@ -76,14 +91,17 @@ def convert(root_dir, saves_dir):
             reader = csv.DictReader(stream)
             for row in reader:
                 get_value_pre = Value_Prescription(row["need"], row["cause"])
+                get_value_generic = Value_Generic(row["state"], row["remark"])
                 get_weight = Weight(row["value_weight"])
                 get_height = Height(row["value_height"])
-                get_value = Prescription_note(get_value_pre)
+                get_value_prescription_note = Prescription_note(get_value_pre)
+                get_generic = Generic(get_value_generic)
 
                 # rows.append(row)
 
                 data_object.append(
-                    User(row["id"], row["name"], row["age"], row["address"], get_value, get_weight, get_height))
+                    User(row["id"], row["name"], row["age"], row["address"], get_value_prescription_note, get_weight,
+                         get_height, get_generic))
 
         # validate data ngay trong nay
 
