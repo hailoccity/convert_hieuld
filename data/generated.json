@@ -1,0 +1,127 @@
+[
+  {
+    "id": "1",
+    "index": 0,
+    "isActive": false,
+    "gender": "male",
+    "tags": [
+      "fugiat",
+      "quis",
+      "magna"
+    ],
+    "friends": [
+      {
+        "id": 0,
+        "name": "Mckenzie Eaton"
+      },
+      {
+        "id": 1,
+        "name": "Dawson Vang"
+      },
+      {
+        "id": 2,
+        "name": "Bradley Huber"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "index": 1,
+    "isActive": true,
+    "gender": "male",
+    "tags": [
+      "non",
+      "cupidatat",
+      "est"
+    ],
+    "friends": [
+      {
+        "id": 0,
+        "name": "Barlow Swanson"
+      },
+      {
+        "id": 1,
+        "name": "Millicent Alvarado"
+      },
+      {
+        "id": 2,
+        "name": "Mable Bonner"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "index": 2,
+    "isActive": false,
+    "gender": "female",
+    "tags": [
+      "officia",
+      "deserunt",
+      "culpa"
+    ],
+    "friends": [
+      {
+        "id": 0,
+        "name": "Mercado Lynn"
+      },
+      {
+        "id": 1,
+        "name": "Sandy Underwood"
+      },
+      {
+        "id": 2,
+        "name": "Rodriquez Kane"
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "index": 3,
+    "isActive": false,
+    "gender": "male",
+    "tags": [
+      "officia",
+      "aliqua",
+      "consectetur"
+    ],
+    "friends": [
+      {
+        "id": 0,
+        "name": "Keisha Spence"
+      },
+      {
+        "id": 1,
+        "name": "Johnnie Carrillo"
+      },
+      {
+        "id": 2,
+        "name": "Terrell Kelley"
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "index": 4,
+    "isActive": false,
+    "gender": "male",
+    "tags": [
+      "consequat",
+      "dolor",
+      "proident"
+    ],
+    "friends": [
+      {
+        "id": 0,
+        "name": "Blanca Richards"
+      },
+      {
+        "id": 1,
+        "name": "Aline Fuentes"
+      },
+      {
+        "id": 2,
+        "name": "Sondra Lopez"
+      }
+    ]
+  }
+]
