@@ -11,13 +11,29 @@ save_dir = r"C:\Users\hieuld\PycharmProjects\convert_hieuld\ConvertCsv\file_conv
 def obj_dict(obj):
     return obj.__dict__
 
-def users():
+
+class Set_id:
+    def __init__(self, pharmacy_id):
+        self.updated = str(datetime.now())
+        self.pharmacy_id = pharmacy_id
+        self.user = General()
+
+
+def General():
     user = [
         {
             "id": "1",
             "name": "HieuLD"
         }
     ]
+    # temp = [
+    #     {
+    #         "description": "Ominext",
+    #         "updated": str(datetime.now()),
+    #         "pharmacy_id": "1",
+    #         "user": user
+    #     }
+    # ]
     return user
 
 
@@ -32,14 +48,6 @@ class Generic:
         self.value = value
 
 
-class Value_Disease:
-    pass
-
-
-class Disease:
-    pass
-
-
 class Value_Prescription:
 
     def __init__(self, need, cause):
@@ -50,34 +58,52 @@ class Value_Prescription:
 class Prescription_note:
     def __init__(self, value=Value_Prescription):
         self.value = value
-        self.decristion = "Hello World"
-        self.Users = users()
+
+
+class Pharmacist:
+    def __init__(self, value, agreement_date, remark):
+        self.value = value
+        self.agreement_date = agreement_date
+        self.remark = remark
 
 
 class Weight:
     def __init__(self, value):
-        self.value = value
+        self.value = int(value)
         self.update = str(datetime.now())
+
+    # @property
+    # def value(self):
+    #     return self.value
+    #
+    # @value.setter
+    # def value(self, value):
+    #     if int(value) < 0:
+    #         raise Exception("Weight cannot < 0")
+    #     self.value = value
 
 
 class Height:
     def __init__(self, value):
-        self.value = value
+        self.value = int(value)
         self.update = str(datetime.now())
 
 
-class User:
+class Patient:
 
-    def __init__(self, id, name, age, address, prescription_note=Prescription_note, weight=Weight, height=Height,
-                 generic=Generic):
+    def __init__(self, id, patient_id, nsips_patient_id, pharmacy_id, sex, prescription_note=Prescription_note,
+                 pharmacis=Pharmacist, weight=Weight, height=Height, generic=Generic):
         self.id = int(id)
-        self.name = str(name)
-        self.age = int(age)
-        self.address = str(address)
+        self.patient_id = patient_id
+        self.nsips_patient_id = nsips_patient_id
+        self.pharmacy_id = pharmacy_id
+        self.updated = str(datetime.now())
+        self.sex = int(sex)
         self.prescription_note = prescription_note
+        self.pharmacist = pharmacis
         self.weight = weight
         self.height = height
-        self.Generic = generic
+        self.generic = generic
 
 
 def convert(root_dir, saves_dir):
@@ -87,43 +113,53 @@ def convert(root_dir, saves_dir):
         # rows = []
         data_object = []
         file_name = os.path.basename(file_path).split(".")[0]
-        with open(file_path) as stream:
-            reader = csv.DictReader(stream)
-            for row in reader:
-                get_value_pre = Value_Prescription(row["need"], row["cause"])
-                get_value_generic = Value_Generic(row["state"], row["remark"])
-                get_weight = Weight(row["value_weight"])
-                get_height = Height(row["value_height"])
-                get_value_prescription_note = Prescription_note(get_value_pre)
-                get_generic = Generic(get_value_generic)
-
-                # rows.append(row)
-
-                data_object.append(
-                    User(row["id"], row["name"], row["age"], row["address"], get_value_prescription_note, get_weight,
-                         get_height, get_generic))
-
-        # validate data ngay trong nay
-
-        saves_file = os.path.join(saves_dir, file_name)
-        # print(rows)
-        # data[row['Id']] = record = {}
-        # for header, value in row.items():
-
-        # process(header, value, record)
-        show = json.dumps(data_object, default=obj_dict, indent=4)
-        # print(show)
-
-        with open(saves_file + '.json', "w") as stream:
-            stream.write(show)
         try:
-            # user_schema = UserSchema()
-            # show = json.dumps(data_object, default=obj_dict, indent=4)
-            # dump_schema = user_schema.dumps(data_object, many=True)
-            show_schema = UserSchema(many=True).loads(show)
-            print(show_schema)
-        except ValidationError as e:
-            print(e.messages)
+            with open(file_path) as stream:
+                reader = csv.DictReader(stream)
+
+                for row in reader:
+                    get_value_pre = Value_Prescription(row["need"], row["cause"])
+                    get_set_id = Set_id(row["pharmacy_id"])
+                    get_value_generic = Value_Generic(row["state"], row["remark"])
+                    # get_weight = Weight(row["value_weight"])
+                    # get_height = Height(row["value_height"])
+                    get_value_prescription_note = Prescription_note([get_value_pre])
+                    get_value_pharmacist = Pharmacist(row['value_phar'], row["agreement_date"], row["remark"]
+                                                      )
+                    get_generic = Generic(get_value_generic)
+
+                    data_object.append(
+                        Patient(row["id"], row["patient_id"], row["nsips_patient_id"], row["pharmacy_id"], row["sex"],
+                                get_value_prescription_note, get_value_pharmacist,
+                                Weight(row["weight"]), Height(row["height"]), get_generic))
+                    # get_weight,
+                    # get_height, get_generic))
+
+            # validate data hear
+
+            saves_file = os.path.join(saves_dir, file_name)
+            # print(rows)
+            # data[row['Id']] = record = {}
+            # for header, value in row.items():
+
+            # process(header, value, record)
+            show = json.dumps(data_object, default=obj_dict, indent=4)
+            # print(show)
+
+            with open(saves_file + '.json', "w") as stream:
+                stream.write(show)
+        except Exception as e:
+            print(e)
+            # print(e)
+
+        # try:
+        #     # user_schema = UserSchema()
+        #     # show = json.dumps(data_object, default=obj_dict, indent=4)
+        #     # dump_schema = user_schema.dumps(data_object, many=True)
+        #     show_schema = UserSchema(many=True).loads(show)
+        #     print(show_schema)
+        # except ValidationError as e:
+        #     print(e.messages)
 
 
 def convert_v2(csv_file):

@@ -1,6 +1,16 @@
 from marshmallow import ValidationError
 
 
+class Validate_Obj:
+    # Validate tung truong trong bang du lieu
+    #
+    @staticmethod
+    def validate(self, objects):
+        for obj in objects:
+            pass
+    pass
+
+
 def validate_id(id):
     if id < 0:
         raise ValidationError("Age must > 0")

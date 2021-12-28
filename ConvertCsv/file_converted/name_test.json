@@ -1,133 +1,133 @@
 [
     {
         "id": 6,
-        "name": "Hai",
-        "age": -23,
-        "address": "Ba Dinh",
+        "patient_id": "1",
+        "nsips_patient_id": "23",
+        "pharmacy_id": "Ba Dinh",
+        "updated": "2021-12-28 14:49:06.848234",
+        "sex": 0,
         "prescription_note": {
             "value": {
-                "need": " ominext",
-                "cause": " HQV"
-            },
-            "decristion": "Hello World",
-            "Users": [
-                {
-                    "id": "1",
-                    "name": "HieuLD"
-                }
-            ]
+                "need": " On",
+                "cause": " ABC"
+            }
+        },
+        "pharmacist": {
+            "value": "Hieu",
+            "agreement_date": "12/2021",
+            "remark": "Good"
         },
         "weight": {
-            "value": " 10",
-            "update": "2021-12-27 11:03:35.020173"
+            "value": 10,
+            "update": "2021-12-28 14:49:06.848234"
         },
         "height": {
-            "value": " 20",
-            "update": "2021-12-27 11:03:35.020173"
+            "value": 20,
+            "update": "2021-12-28 14:49:06.848234"
         },
-        "Generic": {
+        "generic": {
             "value": {
-                "state": " On",
-                "remark": " ABC"
+                "state": "Ominext",
+                "remark": "Good"
             }
         }
     },
     {
         "id": 7,
-        "name": "Hau",
-        "age": 24,
-        "address": "Dong Da",
+        "patient_id": "2",
+        "nsips_patient_id": "24",
+        "pharmacy_id": "Dong Da",
+        "updated": "2021-12-28 14:49:06.848234",
+        "sex": 1,
         "prescription_note": {
             "value": {
-                "need": " VNPT",
-                "cause": " HQV"
-            },
-            "decristion": "Hello World",
-            "Users": [
-                {
-                    "id": "1",
-                    "name": "HieuLD"
-                }
-            ]
+                "need": " Off",
+                "cause": " BCD"
+            }
+        },
+        "pharmacist": {
+            "value": "Chung",
+            "agreement_date": " 12/2021",
+            "remark": "Good"
         },
         "weight": {
-            "value": " 15",
-            "update": "2021-12-27 11:03:35.020173"
+            "value": 12,
+            "update": "2021-12-28 14:49:06.848234"
         },
         "height": {
-            "value": " 13",
-            "update": "2021-12-27 11:03:35.020173"
+            "value": 24,
+            "update": "2021-12-28 14:49:06.848234"
         },
-        "Generic": {
+        "generic": {
             "value": {
-                "state": " Off",
-                "remark": " BCD"
+                "state": "FPT",
+                "remark": "Good"
             }
         }
     },
     {
         "id": 8,
-        "name": "Loc",
-        "age": 25,
-        "address": "Thanh Xuan",
+        "patient_id": "3",
+        "nsips_patient_id": "25",
+        "pharmacy_id": "Thanh Xuan",
+        "updated": "2021-12-28 14:49:06.848234",
+        "sex": 0,
         "prescription_note": {
             "value": {
-                "need": " FPT",
-                "cause": " HL"
-            },
-            "decristion": "Hello World",
-            "Users": [
-                {
-                    "id": "1",
-                    "name": "HieuLD"
-                }
-            ]
+                "need": " On",
+                "cause": " DEF"
+            }
+        },
+        "pharmacist": {
+            "value": " Hung",
+            "agreement_date": " 12/2021",
+            "remark": "Good"
         },
         "weight": {
-            "value": "18",
-            "update": "2021-12-27 11:03:35.020173"
+            "value": 11,
+            "update": "2021-12-28 14:49:06.848234"
         },
         "height": {
-            "value": " 29",
-            "update": "2021-12-27 11:03:35.020173"
+            "value": 22,
+            "update": "2021-12-28 14:49:06.848234"
         },
-        "Generic": {
+        "generic": {
             "value": {
-                "state": " On",
-                "remark": " DEF"
+                "state": "VNPT",
+                "remark": "Good"
             }
         }
     },
     {
         "id": 9,
-        "name": "Long",
-        "age": 26,
-        "address": "Cau Giay",
+        "patient_id": "4",
+        "nsips_patient_id": "26",
+        "pharmacy_id": "Cau Giay",
+        "updated": "2021-12-28 14:49:06.848234",
+        "sex": 1,
         "prescription_note": {
             "value": {
-                "need": " Misa",
-                "cause": " DT"
-            },
-            "decristion": "Hello World",
-            "Users": [
-                {
-                    "id": "1",
-                    "name": "HieuLD"
-                }
-            ]
+                "need": " On",
+                "cause": " EFG"
+            }
+        },
+        "pharmacist": {
+            "value": " Doan",
+            "agreement_date": " 12/2021",
+            "remark": "Good"
         },
         "weight": {
-            "value": " 16",
-            "update": "2021-12-27 11:03:35.020173"
+            "value": 13,
+            "update": "2021-12-28 14:49:06.848234"
         },
         "height": {
-            "value": " 32",
-            "update": "2021-12-27 11:03:35.020173"
+            "value": 26,
+            "update": "2021-12-28 14:49:06.848234"
         },
-        "Generic": {
+        "generic": {
             "value": {
-                "state": " On",
-                "remark": " EFG"
+                "state": "Misa",
+                "remark": "Good"
             }
         }
     }
