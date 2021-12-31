@@ -1,5 +1,0 @@
-id,patient_id,nsips_patient_id,pharmacy_id,sex,need,cause,value_phar,agreement_date,remark,weight,height,state,remark
-6,1,23,Ba Dinh, 0, On, ABC,Hieu,12/2021,Yes,10,20,Ominext,Good
-7,2,24,Dong Da, 1, Off, BCD,Chung, 12/2021, No,12,24,FPT,Good
-8,3,25,Thanh Xuan,0, On, DEF, Hung, 12/2021, Yes,11,22,VNPT,Good
-9,4,26,Cau Giay, 1, On, EFG, Doan, 12/2021, No,13,26,Misa,Good

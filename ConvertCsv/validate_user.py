@@ -11,10 +11,10 @@ class Validate_Obj:
     pass
 
 
-def validate_id(id):
-    if id < 0:
+def validate_id(ids):
+    if ids < 0:
         raise ValidationError("Age must > 0")
-    return id
+    return ids
 
 
 def validate_age(age):
